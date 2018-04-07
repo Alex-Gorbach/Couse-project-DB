@@ -1,0 +1,80 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#imaginary_container{
+    margin-top:20%; /* Don't copy this */
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+.infotable {
+    
+    color: black;
+    margin-top: 29px;
+    font-size: 13px;
+    font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
+    margin-left: 10px;   
+}
+ 
+.infotable td, .bordered th {
+   border-bottom: 1px solid #ccc;
+padding: 10px;  
+}
+
+.infotable td:first-child, .bordered th:first-child {
+    border-left: none;
+    width: 37px;
+    color:#1ab188;
+}
+.tracks{
+    width:500px;
+}
+.onefilm{
+
+    display: grid;
+margin-top: 20px;
+width: 850px;
+margin-left: 129px;
+background-color:#dde5f2;
+border-radius:10px;
+}
+.image_div{
+
+padding: 8px;
+}
+.Name_film_div {
+    
+    background-color:#a8b2bd;
+-webkit-border-top-left-radius: 10px;
+-webkit-border-top-right-radius: 10px;
+-moz-border-radius-topleft: 10px;
+-moz-border-radius-topright: 10px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+

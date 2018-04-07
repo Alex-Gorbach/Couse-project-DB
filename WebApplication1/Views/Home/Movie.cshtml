@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+@{
+    ViewBag.Title = "Movie";
+}
+
+<link type="text/css" href="~/Content/Site.css" rel="stylesheet"/>
+<div class="hero" style="margin-left: 195px;">
+    <div>
+        <div >
+            <h3>@WebApplication1.Models.mo.NameMovie(1)</h3>
+        </div>
+        <div style="display:flex">
+            <div>
+                <img src="@WebApplication1.Models.mo.MovieImage(1)" />
+            </div>
+            <div>
+                <table style="width: 549px;" class="infotable">
+                    <tbody>
+                        <tr>
+                            <td style="width: 74px;">&nbsp;Год:</td>
+                            <td style="width: 474px;">&nbsp;@WebApplication1.Models.mo.YEAR(1)</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 74px;">&nbsp;Страна:</td>
+                            <td style="width: 474px;">&nbsp;США</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 74px;">&nbsp;Жанр:</td>
+                            <td style="width: 474px;">&nbsp;ывыабфывфы,фывфы,фывфыв,фывфы</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 74px;">&nbsp;В ролях:</td>
+                            <td style="width: 474px;">&nbsp;@WebApplication1.Models.mo.actors(1)</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 74px;">&nbsp;Время:</td>
+                            <td style="width: 474px;">&nbsp;@WebApplication1.Models.mo.DURATION(1) мин</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="width:740px">
+            @WebApplication1.Models.mo.NameDeskription(1)
+        </div>
+    </div>
+    <div>
+        <h3>Трейлер</h3>
+        <video width="500" height="281" controls="controls" style="background-color: black;">
+            <source src="@WebApplication1.Models.mo.MovieTrailer(1)" type="video/mp4">
+        </video>
+    </div>
+    <div id="sounds" class="menu1">
+        <h3>Саундтрек</h3>
+        <div id="soundtack_panel" style="overflow-y:scroll; max-height:300px; width:550px">
+            @for(int i = 1; i < 22; i++) { 
+            <p>@WebApplication1.Models.mo.MovieAudioName(i)</p>
+            <audio controls class="tracks">
+                <source src="@WebApplication1.Models.mo.MovieAudio(i)" type="audio/mp3" />
+            </audio>
+            }
+        </div>
+    </div>
+    </div>
+

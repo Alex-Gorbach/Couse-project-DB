@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b19a93b9ac8543959b3cacd26ceeee54" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ACTORS" Width="1.5" PointX="3.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.COUNTRY" Width="1.5" PointX="3.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FAVORITE" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.GENRE" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.IMAGES" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MOVIE_COUNTRY" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MOVIE_SOUNDTRACK" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MOVIES" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MOVIES_ACTORS" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MOVIES_GENRE" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SOUNDTRACK" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TRAILER" Width="1.5" PointX="3" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USERS" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.SYS_C0010004" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010013" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010042" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010043" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C009995" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010022" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010014" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010029" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010030" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010005" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C0010018" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C009996" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

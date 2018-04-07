@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Model1Container" CdmEntityContainer="DataContext1">
+    <EntitySetMapping Name="ACTORS">
+      <EntityTypeMapping TypeName="Model1.ACTORS">
+        <MappingFragment StoreEntitySet="ACTORS">
+          <ScalarProperty Name="ACTOR_ID" ColumnName="ACTOR_ID" />
+          <ScalarProperty Name="ACTOR_NAME" ColumnName="ACTOR_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COUNTRY">
+      <EntityTypeMapping TypeName="Model1.COUNTRY">
+        <MappingFragment StoreEntitySet="COUNTRY">
+          <ScalarProperty Name="COUNTRY_ID" ColumnName="COUNTRY_ID" />
+          <ScalarProperty Name="COUNTRY_NAME" ColumnName="COUNTRY_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAVORITE">
+      <EntityTypeMapping TypeName="Model1.FAVORITE">
+        <MappingFragment StoreEntitySet="FAVORITE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="MOVIE_ID" ColumnName="MOVIE_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GENRE">
+      <EntityTypeMapping TypeName="Model1.GENRE">
+        <MappingFragment StoreEntitySet="GENRE">
+          <ScalarProperty Name="GENRE_ID" ColumnName="GENRE_ID" />
+          <ScalarProperty Name="GENRE_NAME" ColumnName="GENRE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMAGES">
+      <EntityTypeMapping TypeName="Model1.IMAGES">
+        <MappingFragment StoreEntitySet="IMAGES">
+          <ScalarProperty Name="IMAGE_ID" ColumnName="IMAGE_ID" />
+          <ScalarProperty Name="IMAGE_NAME" ColumnName="IMAGE_NAME" />
+          <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIE_COUNTRY">
+      <EntityTypeMapping TypeName="Model1.MOVIE_COUNTRY">
+        <MappingFragment StoreEntitySet="MOVIE_COUNTRY">
+          <ScalarProperty Name="MOVIE_COUNTRY_ID" ColumnName="MOVIE_COUNTRY_ID" />
+          <ScalarProperty Name="COUNTRY_ID" ColumnName="COUNTRY_ID" />
+          <ScalarProperty Name="MOVIE_ID" ColumnName="MOVIE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIE_SOUNDTRACK">
+      <EntityTypeMapping TypeName="Model1.MOVIE_SOUNDTRACK">
+        <MappingFragment StoreEntitySet="MOVIE_SOUNDTRACK">
+          <ScalarProperty Name="MOVIE_SOUNDTRACK_ID" ColumnName="MOVIE_SOUNDTRACK_ID" />
+          <ScalarProperty Name="SOUNDTRACK_ID" ColumnName="SOUNDTRACK_ID" />
+          <ScalarProperty Name="MOVIE_ID" ColumnName="MOVIE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIES">
+      <EntityTypeMapping TypeName="Model1.MOVIES">
+        <MappingFragment StoreEntitySet="MOVIES">
+          <ScalarProperty Name="MOVIE_ID" ColumnName="MOVIE_ID" />
+          <ScalarProperty Name="MOVIE_NAME" ColumnName="MOVIE_NAME" />
+          <ScalarProperty Name="MOVIE_RELISE_DATE" ColumnName="MOVIE_RELISE_DATE" />
+          <ScalarProperty Name="MOVIE_DURATION" ColumnName="MOVIE_DURATION" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIES_ACTORS">
+      <EntityTypeMapping TypeName="Model1.MOVIES_ACTORS">
+        <MappingFragment StoreEntitySet="MOVIES_ACTORS">
+          <ScalarProperty Name="MOVIES_ACTORS_ID" ColumnName="MOVIES_ACTORS_ID" />
+          <ScalarProperty Name="ACTOR_ID" ColumnName="ACTOR_ID" />
+          <ScalarProperty Name="MOVIE_ID" ColumnName="MOVIE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIES_GENRE">
+      <EntityTypeMapping TypeName="Model1.MOVIES_GENRE">
+        <MappingFragment StoreEntitySet="MOVIES_GENRE">
+          <ScalarProperty Name="MOVIES_GENRE_ID" ColumnName="MOVIES_GENRE_ID" />
+          <ScalarProperty Name="GENRE_ID" ColumnName="GENRE_ID" />
+          <ScalarProperty Name="MOVIE_ID" ColumnName="MOVIE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOUNDTRACK">
+      <EntityTypeMapping TypeName="Model1.SOUNDTRACK">
+        <MappingFragment StoreEntitySet="SOUNDTRACK">
+          <ScalarProperty Name="SOUNDTRACK_ID" ColumnName="SOUNDTRACK_ID" />
+          <ScalarProperty Name="SOUNDTRACK_NAME" ColumnName="SOUNDTRACK_NAME" />
+          <ScalarProperty Name="SOUNDTRACK1" ColumnName="SOUNDTRACK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRAILER">
+      <EntityTypeMapping TypeName="Model1.TRAILER">
+        <MappingFragment StoreEntitySet="TRAILER">
+          <ScalarProperty Name="TRAILER_ID" ColumnName="TRAILER_ID" />
+          <ScalarProperty Name="TRAILER_NAME" ColumnName="TRAILER_NAME" />
+          <ScalarProperty Name="TRAILER_VIDEO" ColumnName="TRAILER_VIDEO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="Model1.USERS">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="USER_LASTNAME" ColumnName="USER_LASTNAME" />
+          <ScalarProperty Name="USER_EMAIL" ColumnName="USER_EMAIL" />
+          <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DELETEACTOR" FunctionName="Хранилище Model1.DELETEACTOR" />
+    <FunctionImportMapping FunctionImportName="DELETECOUNTRY" FunctionName="Хранилище Model1.DELETECOUNTRY" />
+    <FunctionImportMapping FunctionImportName="DELETEFAVORITE" FunctionName="Хранилище Model1.DELETEFAVORITE" />
+    <FunctionImportMapping FunctionImportName="DELETEGENRE" FunctionName="Хранилище Model1.DELETEGENRE" />
+    <FunctionImportMapping FunctionImportName="DELETEIMAGES" FunctionName="Хранилище Model1.DELETEIMAGES" />
+    <FunctionImportMapping FunctionImportName="DELETEMOVIE_COUNTRY" FunctionName="Хранилище Model1.DELETEMOVIE_COUNTRY" />
+    <FunctionImportMapping FunctionImportName="DELETEMOVIE_GENRE" FunctionName="Хранилище Model1.DELETEMOVIE_GENRE" />
+    <FunctionImportMapping FunctionImportName="DELETEMOVIES" FunctionName="Хранилище Model1.DELETEMOVIES" />
+    <FunctionImportMapping FunctionImportName="DELETEMOVIES_ACTOR" FunctionName="Хранилище Model1.DELETEMOVIES_ACTOR" />
+    <FunctionImportMapping FunctionImportName="DELETEMOVIE_SOUNDTRACK" FunctionName="Хранилище Model1.DELETEMOVIE_SOUNDTRACK" />
+    <FunctionImportMapping FunctionImportName="DELETESOUNDTRACK" FunctionName="Хранилище Model1.DELETESOUNDTRACK" />
+    <FunctionImportMapping FunctionImportName="DELETETRAILER" FunctionName="Хранилище Model1.DELETETRAILER" />
+    <FunctionImportMapping FunctionImportName="DELETEUSER" FunctionName="Хранилище Model1.DELETEUSER" />
+    <FunctionImportMapping FunctionImportName="GET_IMAGE_DIR" FunctionName="Хранилище Model1.GET_IMAGE_DIR" />
+    <FunctionImportMapping FunctionImportName="GET_IMAGE_NAME" FunctionName="Хранилище Model1.GET_IMAGE_NAME" />
+    <FunctionImportMapping FunctionImportName="GET_SOUNDTRACK_DIR" FunctionName="Хранилище Model1.GET_SOUNDTRACK_DIR" />
+    <FunctionImportMapping FunctionImportName="GET_SOUNDTRACK_NAME" FunctionName="Хранилище Model1.GET_SOUNDTRACK_NAME" />
+    <FunctionImportMapping FunctionImportName="GET_TRAILER_DIR" FunctionName="Хранилище Model1.GET_TRAILER_DIR" />
+    <FunctionImportMapping FunctionImportName="GET_TRAILER_NAME" FunctionName="Хранилище Model1.GET_TRAILER_NAME" />
+    <FunctionImportMapping FunctionImportName="INSERFAVORITE" FunctionName="Хранилище Model1.INSERFAVORITE" />
+    <FunctionImportMapping FunctionImportName="INSERTACTOR" FunctionName="Хранилище Model1.INSERTACTOR" />
+    <FunctionImportMapping FunctionImportName="INSERTCOUNTRY" FunctionName="Хранилище Model1.INSERTCOUNTRY" />
+    <FunctionImportMapping FunctionImportName="INSERTGENRE" FunctionName="Хранилище Model1.INSERTGENRE" />
+    <FunctionImportMapping FunctionImportName="INSERTIMAGES" FunctionName="Хранилище Model1.INSERTIMAGES" />
+    <FunctionImportMapping FunctionImportName="INSERTMOVIE_COUNTRY" FunctionName="Хранилище Model1.INSERTMOVIE_COUNTRY" />
+    <FunctionImportMapping FunctionImportName="INSERTMOVIE_GENRE" FunctionName="Хранилище Model1.INSERTMOVIE_GENRE" />
+    <FunctionImportMapping FunctionImportName="INSERTMOVIES" FunctionName="Хранилище Model1.INSERTMOVIES" />
+    <FunctionImportMapping FunctionImportName="INSERTMOVIES_ACTORS" FunctionName="Хранилище Model1.INSERTMOVIES_ACTORS" />
+    <FunctionImportMapping FunctionImportName="INSERTMOVIE_SOUNDTRACK" FunctionName="Хранилище Model1.INSERTMOVIE_SOUNDTRACK" />
+    <FunctionImportMapping FunctionImportName="INSERTSOUNDTRACK" FunctionName="Хранилище Model1.INSERTSOUNDTRACK" />
+    <FunctionImportMapping FunctionImportName="INSERTTRAILER" FunctionName="Хранилище Model1.INSERTTRAILER" />
+    <FunctionImportMapping FunctionImportName="INSERTUSER" FunctionName="Хранилище Model1.INSERTUSER" />
+    <FunctionImportMapping FunctionImportName="UPDATEACTOR" FunctionName="Хранилище Model1.UPDATEACTOR" />
+    <FunctionImportMapping FunctionImportName="UPDATECOUNTRY" FunctionName="Хранилище Model1.UPDATECOUNTRY" />
+    <FunctionImportMapping FunctionImportName="UPDATEFAVORITE" FunctionName="Хранилище Model1.UPDATEFAVORITE" />
+    <FunctionImportMapping FunctionImportName="UPDATEGENRE" FunctionName="Хранилище Model1.UPDATEGENRE" />
+    <FunctionImportMapping FunctionImportName="UPDATEIMAGES" FunctionName="Хранилище Model1.UPDATEIMAGES" />
+    <FunctionImportMapping FunctionImportName="UPDATEMOVIE_COUNTRY" FunctionName="Хранилище Model1.UPDATEMOVIE_COUNTRY" />
+    <FunctionImportMapping FunctionImportName="UPDATEMOVIE_GENRE" FunctionName="Хранилище Model1.UPDATEMOVIE_GENRE" />
+    <FunctionImportMapping FunctionImportName="UPDATEMOVIES" FunctionName="Хранилище Model1.UPDATEMOVIES" />
+    <FunctionImportMapping FunctionImportName="UPDATEMOVIES_ACTORS" FunctionName="Хранилище Model1.UPDATEMOVIES_ACTORS" />
+    <FunctionImportMapping FunctionImportName="UPDATEMOVIE_SOUNDTRACK" FunctionName="Хранилище Model1.UPDATEMOVIE_SOUNDTRACK" />
+    <FunctionImportMapping FunctionImportName="UPDATESOUNDTRACK" FunctionName="Хранилище Model1.UPDATESOUNDTRACK" />
+    <FunctionImportMapping FunctionImportName="UPDATETRAILER" FunctionName="Хранилище Model1.UPDATETRAILER" />
+    <FunctionImportMapping FunctionImportName="UPDATEUSER" FunctionName="Хранилище Model1.UPDATEUSER" />
+  </EntityContainerMapping>
+</Mapping>

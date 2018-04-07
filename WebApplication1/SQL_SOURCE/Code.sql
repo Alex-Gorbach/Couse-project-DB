@@ -1,0 +1,11 @@
+
+CREATE SEQUENCE mov_id_seq START WITH 1;
+CREATE OR REPLACE TRIGGER movie_id_inc 
+BEFORE INSERT ON movies 
+FOR EACH ROW
+
+BEGIN
+  SELECT mov_id_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+END;

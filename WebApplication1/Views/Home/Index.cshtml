@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebApplication1.Models.IMAGE_DIR>
+  
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    @for (int i = 1; i <= WebApplication1.Models.mo.FindMovieID(); i++)
+    {<div>
+        <div class="onefilm">
+            <div class="Name_film_div">
+                @Html.ActionLink(@WebApplication1.Models.mo.NameMovie(i), "Movie", "Home", new { area = "" }, new { @class = "navbar-brand"})
+            </div>
+            <div class="hero" style="display:flex">
+
+
+                <div class="image_div">
+                    <img src="@WebApplication1.Models.mo.MovieImage(i)" />
+                </div>
+                <div style="padding: 15px;min-height: 250px;">
+                    @WebApplication1.Models.mo.NameDeskription(i)
+                </div>
+
+            </div>
+        </div>
+    </div>}
+

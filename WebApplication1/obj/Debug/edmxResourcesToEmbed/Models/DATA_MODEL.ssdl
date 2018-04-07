@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model1" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACTORS">
+    <Key>
+      <PropertyRef Name="ACTOR_ID" />
+    </Key>
+    <Property Name="ACTOR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ACTOR_NAME" Type="varchar2" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COUNTRY">
+    <Key>
+      <PropertyRef Name="COUNTRY_ID" />
+    </Key>
+    <Property Name="COUNTRY_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="COUNTRY_NAME" Type="varchar2" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FAVORITE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MOVIE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="STATUS" Type="varchar2" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GENRE">
+    <Key>
+      <PropertyRef Name="GENRE_ID" />
+    </Key>
+    <Property Name="GENRE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="GENRE_NAME" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="IMAGES">
+    <Key>
+      <PropertyRef Name="IMAGE_ID" />
+    </Key>
+    <Property Name="IMAGE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IMAGE_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="IMAGE" Type="bfile" />
+  </EntityType>
+  <EntityType Name="MOVIE_COUNTRY">
+    <Key>
+      <PropertyRef Name="MOVIE_COUNTRY_ID" />
+    </Key>
+    <Property Name="MOVIE_COUNTRY_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="COUNTRY_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MOVIE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MOVIE_SOUNDTRACK">
+    <Key>
+      <PropertyRef Name="MOVIE_SOUNDTRACK_ID" />
+    </Key>
+    <Property Name="MOVIE_SOUNDTRACK_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SOUNDTRACK_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MOVIE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MOVIES">
+    <Key>
+      <PropertyRef Name="MOVIE_ID" />
+    </Key>
+    <Property Name="MOVIE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MOVIE_NAME" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="MOVIE_RELISE_DATE" Type="date" />
+    <Property Name="MOVIE_DURATION" Type="number" Precision="38" Scale="0" />
+    <Property Name="DESCRIPTION" Type="varchar2" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="MOVIES_ACTORS">
+    <Key>
+      <PropertyRef Name="MOVIES_ACTORS_ID" />
+    </Key>
+    <Property Name="MOVIES_ACTORS_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ACTOR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MOVIE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MOVIES_GENRE">
+    <Key>
+      <PropertyRef Name="MOVIES_GENRE_ID" />
+    </Key>
+    <Property Name="MOVIES_GENRE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="GENRE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MOVIE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SOUNDTRACK">
+    <Key>
+      <PropertyRef Name="SOUNDTRACK_ID" />
+    </Key>
+    <Property Name="SOUNDTRACK_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SOUNDTRACK_NAME" Type="varchar2" MaxLength="200" />
+    <Property Name="SOUNDTRACK" Type="bfile" />
+  </EntityType>
+  <EntityType Name="TRAILER">
+    <Key>
+      <PropertyRef Name="TRAILER_ID" />
+    </Key>
+    <Property Name="TRAILER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TRAILER_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="TRAILER_VIDEO" Type="bfile" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="USER_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="USER_LASTNAME" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="USER_EMAIL" Type="varchar2" MaxLength="200" Nullable="false" />
+    <Property Name="USER_PASSWORD" Type="varchar2" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <Association Name="SYS_C0010004">
+    <End Role="ACTORS" Type="Self.ACTORS" Multiplicity="1" />
+    <End Role="MOVIES_ACTORS" Type="Self.MOVIES_ACTORS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTORS">
+        <PropertyRef Name="ACTOR_ID" />
+      </Principal>
+      <Dependent Role="MOVIES_ACTORS">
+        <PropertyRef Name="ACTOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010005">
+    <End Role="MOVIES" Type="Self.MOVIES" Multiplicity="1" />
+    <End Role="MOVIES_ACTORS" Type="Self.MOVIES_ACTORS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIES">
+        <PropertyRef Name="MOVIE_ID" />
+      </Principal>
+      <Dependent Role="MOVIES_ACTORS">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010013">
+    <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="1" />
+    <End Role="MOVIE_COUNTRY" Type="Self.MOVIE_COUNTRY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUNTRY">
+        <PropertyRef Name="COUNTRY_ID" />
+      </Principal>
+      <Dependent Role="MOVIE_COUNTRY">
+        <PropertyRef Name="COUNTRY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010014">
+    <End Role="MOVIES" Type="Self.MOVIES" Multiplicity="1" />
+    <End Role="MOVIE_COUNTRY" Type="Self.MOVIE_COUNTRY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIES">
+        <PropertyRef Name="MOVIE_ID" />
+      </Principal>
+      <Dependent Role="MOVIE_COUNTRY">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010018">
+    <End Role="MOVIES" Type="Self.MOVIES" Multiplicity="1" />
+    <End Role="TRAILER" Type="Self.TRAILER" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIES">
+        <PropertyRef Name="MOVIE_ID" />
+      </Principal>
+      <Dependent Role="TRAILER">
+        <PropertyRef Name="TRAILER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010022">
+    <End Role="MOVIES" Type="Self.MOVIES" Multiplicity="1" />
+    <End Role="IMAGES" Type="Self.IMAGES" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIES">
+        <PropertyRef Name="MOVIE_ID" />
+      </Principal>
+      <Dependent Role="IMAGES">
+        <PropertyRef Name="IMAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010029">
+    <End Role="SOUNDTRACK" Type="Self.SOUNDTRACK" Multiplicity="1" />
+    <End Role="MOVIE_SOUNDTRACK" Type="Self.MOVIE_SOUNDTRACK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOUNDTRACK">
+        <PropertyRef Name="SOUNDTRACK_ID" />
+      </Principal>
+      <Dependent Role="MOVIE_SOUNDTRACK">
+        <PropertyRef Name="SOUNDTRACK_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010030">
+    <End Role="MOVIES" Type="Self.MOVIES" Multiplicity="1" />
+    <End Role="MOVIE_SOUNDTRACK" Type="Self.MOVIE_SOUNDTRACK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIES">
+        <PropertyRef Name="MOVIE_ID" />
+      </Principal>
+      <Dependent Role="MOVIE_SOUNDTRACK">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010042">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="FAVORITE" Type="Self.FAVORITE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="USER_ID" />
+      </Principal>
+      <Dependent Role="FAVORITE">
+        <PropertyRef Name="USER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0010043">
+    <End Role="MOVIES" Type="Self.MOVIES" Multiplicity="1" />
+    <End Role="FAVORITE" Type="Self.FAVORITE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIES">
+        <PropertyRef Name="MOVIE_ID" />
+      </Principal>
+      <Dependent Role="FAVORITE">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C009995">
+    <End Role="GENRE" Type="Self.GENRE" Multiplicity="1" />
+    <End Role="MOVIES_GENRE" Type="Self.MOVIES_GENRE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GENRE">
+        <PropertyRef Name="GENRE_ID" />
+      </Principal>
+      <Dependent Role="MOVIES_GENRE">
+        <PropertyRef Name="GENRE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C009996">
+    <End Role="MOVIES" Type="Self.MOVIES" Multiplicity="1" />
+    <End Role="MOVIES_GENRE" Type="Self.MOVIES_GENRE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOVIES">
+        <PropertyRef Name="MOVIE_ID" />
+      </Principal>
+      <Dependent Role="MOVIES_GENRE">
+        <PropertyRef Name="MOVIE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DELETEACTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_ACTOR_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETECOUNTRY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_COUNTRY_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEFAVORITE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_FAVORITE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEGENRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_GENRE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEIMAGES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_IMAGE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEMOVIE_COUNTRY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_COUNTRY_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEMOVIE_GENRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_GENRE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEMOVIES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEMOVIES_ACTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIES_ACTOR_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEMOVIE_SOUNDTRACK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_SOUNDTRACK_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETESOUNDTRACK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_SOUNDTRACK_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETETRAILER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_TRAILER_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="DELETEUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_USER_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="GET_IMAGE_DIR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_IMAGE_ID" Type="number" Mode="In" />
+    <Parameter Name="ION" Type="varchar2" Mode="Out" />
+  </Function>
+  <Function Name="GET_IMAGE_NAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_IMAGE_ID" Type="number" Mode="In" />
+    <Parameter Name="ION" Type="varchar2" Mode="Out" />
+  </Function>
+  <Function Name="GET_SOUNDTRACK_DIR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_SOUNDTRACK_ID" Type="number" Mode="In" />
+    <Parameter Name="ION" Type="varchar2" Mode="Out" />
+  </Function>
+  <Function Name="GET_SOUNDTRACK_NAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_SOUNDTRACK_ID" Type="number" Mode="In" />
+    <Parameter Name="ION" Type="varchar2" Mode="Out" />
+  </Function>
+  <Function Name="GET_TRAILER_DIR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_TRAILER_ID" Type="number" Mode="In" />
+    <Parameter Name="ION" Type="varchar2" Mode="Out" />
+  </Function>
+  <Function Name="GET_TRAILER_NAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_TRAILER_ID" Type="number" Mode="In" />
+    <Parameter Name="ION" Type="varchar2" Mode="Out" />
+  </Function>
+  <Function Name="INSERFAVORITE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_USER_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_STATUS" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTACTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_ACTOR_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTCOUNTRY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_COUNTRY_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTGENRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_GENRE_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTIMAGES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_IMAGE_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTMOVIE_COUNTRY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_COUNTRY_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTMOVIE_GENRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_GENRE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTMOVIES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_NAME" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_MOVIE_RELISE_DATE" Type="date" Mode="In" />
+    <Parameter Name="PR_MOVIE_DURATION" Type="number" Mode="In" />
+    <Parameter Name="PR_DESCRIPTION" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTMOVIES_ACTORS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_ACTOR_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTMOVIE_SOUNDTRACK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_SOUNDTRACK_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="INSERTSOUNDTRACK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_SOUNDTRACK_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTTRAILER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_TRAILER_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="INSERTUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_USER_NAME" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_USERS_LASTNAME" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_USERS_EMAIL" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_USERS_PASSWORD" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATEACTOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_ACTOR_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_ACTOR_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATECOUNTRY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_COUNTRY_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_COUNTRY_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATEFAVORITE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_FAVORITE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_USER_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_STATUS" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATEGENRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_GENRE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_GENRE_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATEIMAGES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_IMAGE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_IMAGE_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATEMOVIE_COUNTRY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_COUNTRY_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_COUNTRY_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATEMOVIE_GENRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_GENRE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_GENRE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATEMOVIES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_NAME" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_MOVIE_RELISE_DATE" Type="date" Mode="In" />
+    <Parameter Name="PR_MOVIE_DURATION" Type="number" Mode="In" />
+    <Parameter Name="PR_DESCRIPTION" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATEMOVIES_ACTORS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIES_ACTOR_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_ACTOR_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATEMOVIE_SOUNDTRACK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_MOVIE_SOUNDTRACK_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_SOUNDTRACK_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_MOVIE_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="UPDATESOUNDTRACK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_SOUNDTRACK_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_SOUNDTRACK_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATETRAILER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_TRAILER_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_TRAILER_NAME" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="UPDATEUSER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMINBD">
+    <Parameter Name="PR_USER_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_USER_NAME" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_USERS_LASTNAME" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_USERS_EMAIL" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_USERS_PASSWORD" Type="varchar2" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище Model1Container">
+    <EntitySet Name="ACTORS" EntityType="Self.ACTORS" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="COUNTRY" EntityType="Self.COUNTRY" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="FAVORITE" EntityType="Self.FAVORITE" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="GENRE" EntityType="Self.GENRE" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="IMAGES" EntityType="Self.IMAGES" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="MOVIE_COUNTRY" EntityType="Self.MOVIE_COUNTRY" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="MOVIE_SOUNDTRACK" EntityType="Self.MOVIE_SOUNDTRACK" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="MOVIES" EntityType="Self.MOVIES" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="MOVIES_ACTORS" EntityType="Self.MOVIES_ACTORS" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="MOVIES_GENRE" EntityType="Self.MOVIES_GENRE" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="SOUNDTRACK" EntityType="Self.SOUNDTRACK" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="TRAILER" EntityType="Self.TRAILER" Schema="ADMINBD" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="ADMINBD" store:Type="Tables" />
+    <AssociationSet Name="SYS_C0010004" Association="Self.SYS_C0010004">
+      <End Role="ACTORS" EntitySet="ACTORS" />
+      <End Role="MOVIES_ACTORS" EntitySet="MOVIES_ACTORS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010005" Association="Self.SYS_C0010005">
+      <End Role="MOVIES" EntitySet="MOVIES" />
+      <End Role="MOVIES_ACTORS" EntitySet="MOVIES_ACTORS" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010013" Association="Self.SYS_C0010013">
+      <End Role="COUNTRY" EntitySet="COUNTRY" />
+      <End Role="MOVIE_COUNTRY" EntitySet="MOVIE_COUNTRY" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010014" Association="Self.SYS_C0010014">
+      <End Role="MOVIES" EntitySet="MOVIES" />
+      <End Role="MOVIE_COUNTRY" EntitySet="MOVIE_COUNTRY" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010018" Association="Self.SYS_C0010018">
+      <End Role="MOVIES" EntitySet="MOVIES" />
+      <End Role="TRAILER" EntitySet="TRAILER" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010022" Association="Self.SYS_C0010022">
+      <End Role="MOVIES" EntitySet="MOVIES" />
+      <End Role="IMAGES" EntitySet="IMAGES" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010029" Association="Self.SYS_C0010029">
+      <End Role="SOUNDTRACK" EntitySet="SOUNDTRACK" />
+      <End Role="MOVIE_SOUNDTRACK" EntitySet="MOVIE_SOUNDTRACK" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010030" Association="Self.SYS_C0010030">
+      <End Role="MOVIES" EntitySet="MOVIES" />
+      <End Role="MOVIE_SOUNDTRACK" EntitySet="MOVIE_SOUNDTRACK" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010042" Association="Self.SYS_C0010042">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="FAVORITE" EntitySet="FAVORITE" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0010043" Association="Self.SYS_C0010043">
+      <End Role="MOVIES" EntitySet="MOVIES" />
+      <End Role="FAVORITE" EntitySet="FAVORITE" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C009995" Association="Self.SYS_C009995">
+      <End Role="GENRE" EntitySet="GENRE" />
+      <End Role="MOVIES_GENRE" EntitySet="MOVIES_GENRE" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C009996" Association="Self.SYS_C009996">
+      <End Role="MOVIES" EntitySet="MOVIES" />
+      <End Role="MOVIES_GENRE" EntitySet="MOVIES_GENRE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
